@@ -1,6 +1,6 @@
 .navbar {
     background-color: #E7C200;
-    padding: 30px;
+    padding: 10px;
   }
   
   #reviewsbtn,
@@ -11,8 +11,8 @@
     border-radius: 4px;
     padding: 10px 20px;
     margin-right: -500px;
-    color: #fff;
-    font-size: 16px;
+    color: #000000;
+    font-size: 20px;
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
@@ -22,4 +22,10 @@
   #accountbtn:hover {
     background-color: #C5A100;
   }
-  
+  #motto {
+    color: white;
+    margin-left: -1350px;
+    font-size: 40px;
+    margin-top: 50px;
+    padding: auto;
+  }
