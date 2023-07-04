@@ -1,17 +1,21 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "./context/AuthContext";
+import "./Navbar.css"; // Import the custom CSS file
 
 function Navbar() {
   const { current_user, logout } = useContext(AuthContext);
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-success-subtle mt-4">
+      <header className="yellow-background">
         <div className="container">
-          <Link to="/" className="navbar-brand fs-3">
-            <strong>PostMoto</strong>
-          </Link>
+          <h1 className="header-title">MOTOREVIEW</h1>
+        </div>
+      </header>
+      <nav className="navbar navbar-expand-lg mt-4">
+        <div className="container">
+          <h1 id="motto">Motorcycling at its best.</h1>
           <button
             className="navbar-toggler"
             type="button"
@@ -24,18 +28,19 @@ function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
-              {/* {current_user && current_user ? ( */}
+            <ul className="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <Link to="/" className="nav-link active">
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/reviews" className="nav-link active">
+                  Add Review
+                </Link>
+              </li>
+              {current_user ? (
                 <>
-                  <li className="nav-item">
-                    <Link
-                      to="/"
-                      className="nav-link active"
-                      aria-current="page"
-                    >
-                      Home
-                    </Link>
-                  </li>
                   <li className="nav-item">
                     <Link to="/reviews" className="nav-link active">
                       Reviews
@@ -43,14 +48,13 @@ function Navbar() {
                   </li>
                   <li className="nav-item">
                     <Link to="/addbike" className="nav-link">
-                      AddBike
+                      Add Bike
                     </Link>
                   </li>
-                  <li className="nav-item dropdown">
+                  <li className="nav-item dropdown ml-auto">
                     <Link
                       to="/profile"
                       className="nav-link active dropdown-toggle"
-                      href="#"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
@@ -59,11 +63,7 @@ function Navbar() {
                     </Link>
                     <ul className="dropdown-menu">
                       <li>
-                        <Link
-                          to="/profile"
-                          className="dropdown-item"
-                          href="#"
-                        >
+                        <Link to="/profile" className="dropdown-item">
                           Profile
                         </Link>
                       </li>
@@ -71,26 +71,43 @@ function Navbar() {
                         <hr className="dropdown-divider" />
                       </li>
                       <li>
-                        <a className="dropdown-item" onClick={() => logout()}>
+                        <button
+                          className="dropdown-item"
+                          onClick={() => logout()}
+                        >
                           Logout
-                        </a>
+                        </button>
                       </li>
                     </ul>
                   </li>
                 </>
+              ) : (
                 <>
-                  <li className="nav-item">
-                    <Link to="/login" className="nav-link active">
-                      Login
+                  <li className="nav-item ml-auto">
+                    <Link
+                      to="/"
+                      className="nav-link active dropdown-toggle"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      My account
                     </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="/register" className="nav-link active">
-                      Register
-                    </Link>
+                    <ul className="dropdown-menu">
+                      <li>
+                        <Link to="/login" className="dropdown-item">
+                          Login
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/register" className="dropdown-item">
+                          Register
+                        </Link>
+                      </li>
+                    </ul>
                   </li>
                 </>
-              {/* )} */}
+              )}
             </ul>
           </div>
         </div>

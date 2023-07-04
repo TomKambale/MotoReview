@@ -132,8 +132,7 @@ function AddBike() {
   const { addMotorcycle } = useContext(MotorcyclesContext);
 
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
+  const [review, setReview] = useState("");
   const [image, setImage] = useState("");
   const [setMessage] = useState("");
 
@@ -148,7 +147,7 @@ function AddBike() {
     }
   
     // Call addMotorcycle function from the context
-    addMotorcycle(title, description, price, image, current_user.id)
+    addMotorcycle(title, review, image, current_user.id)
       .then((response) => {
         // Handle the response from the context
         if (response.success) {
@@ -188,21 +187,14 @@ function AddBike() {
               />
             </div>
             <div className="mb-3">
-              <label className="form-label">Description</label>
+              <label className="form-label">Review</label>
               <input
                 type="text"
-                onChange={(e) => setDescription(e.target.value)}
+                onChange={(e) => setReview(e.target.value)}
                 className="form-control"
               />
             </div>
-            <div className="mb-3">
-              <label className="form-label">Price</label>
-              <input
-                type="text"
-                onChange={(e) => setPrice(e.target.value)}
-                className="form-control"
-              />
-            </div>
+    
 
             <div className="mb-3">
               <label className="form-label">Image</label>
