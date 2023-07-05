@@ -7,22 +7,23 @@ export const MotorcyclesContext = createContext();
 export function MotorcyclesProvider({ children }) {
   const [motorcycles, setMotorcycles] = useState([]);
   const nav = useNavigate();
-  const [onchange, setonchange] = useState(false);
+  const [onchange, setOnchange] = useState(false);
 
   useEffect(() => {
-    fetch("/allmotorcycles", {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    })
+    fetch("/allmotorcycles")
       .then((res) => res.json())
-      .then((response) => {
-        setMotorcycles(response);
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setMotorcycles(data);
+        } else {
+          setMotorcycles([]);
+        }
       })
       .catch((error) => {
         console.error("Error:", error);
       });
-  }, []);
-  // AddBike
+  }, [onchange]);
+
   const addMotorcycle = (title, description, price, image, userId) => {
     return new Promise((resolve, reject) => {
       fetch("/newbike", {
@@ -39,6 +40,7 @@ export function MotorcyclesProvider({ children }) {
         .then((res) => res.json())
         .then((response) => {
           if (response.success) {
+            setOnchange(!onchange);
             resolve(response);
           } else if (response.error) {
             reject(response);
@@ -52,14 +54,13 @@ export function MotorcyclesProvider({ children }) {
     });
   };
 
-  // Delete bike
   const deleteMotorcycle = (id) => {
     fetch(`/deletemoto/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((response) => {
-        setonchange(!onchange);
+        setOnchange(!onchange);
         console.log(response);
         nav("reviews");
         Swal.fire("Success", "Delete success", "success");

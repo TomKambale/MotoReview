@@ -14,15 +14,16 @@ import SingleBike from "./pages/SingleBike";
 
 function App() {
   return (
+<div className="app-container">
     <BrowserRouter>
       <AuthProvider>
         <MotorcyclesProvider>
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
-              <Route path="login" element={<Login />} />
-              <Route path="register" element={<Register />} />
               <Route path="profile" element={<Profile />} />
+              <Route path="register" element={<Register />} />
+              <Route path="login" element={<Login />} />
               <Route path="addbike" element={<AddBike />} />
               <Route path="reviews" element={<Reviews />} />
               <Route path="reviews/:id" element={<SingleBike />} />
@@ -32,6 +33,7 @@ function App() {
         </MotorcyclesProvider>
       </AuthProvider>
     </BrowserRouter>
+    </div>
   );
 }
 
