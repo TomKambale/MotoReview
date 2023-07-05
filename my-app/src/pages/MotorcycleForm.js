@@ -58,7 +58,7 @@ function MotorcycleForm({ motorcycle }) {
           <h3>Motorcycle Details</h3>
           <p>Title: {motorcycle.title}</p>
           <p>Description: {motorcycle.description}</p>
-          <p>Price: {motorcycle.price}</p>
+          <p>Image: {motorcycle.image}</p>
           <p>Created At: {motorcycle.created_at}</p>
           <img src={motorcycle.image} className="img-fluid" alt="loading..." />
         </div>

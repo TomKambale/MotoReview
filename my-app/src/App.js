@@ -14,6 +14,7 @@ import SingleBike from "./pages/SingleBike";
 
 function App() {
   return (
+    <div className="app-container">
     <BrowserRouter>
       <AuthProvider>
         <MotorcyclesProvider>
@@ -32,6 +33,7 @@ function App() {
         </MotorcyclesProvider>
       </AuthProvider>
     </BrowserRouter>
+    </div>
   );
 }
 
