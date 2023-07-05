@@ -1,30 +1,32 @@
+
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../components/context/AuthContext";
 import { MotorcyclesContext } from "../components/context/MotorcyclesContext";
 import Swal from "sweetalert2";
-import "./AddBike.css"; // Import the custom CSS file
+
 
 function AddBike() {
   const { current_user } = useContext(AuthContext);
   const { addMotorcycle } = useContext(MotorcyclesContext);
 
   const [title, setTitle] = useState("");
-  const [review, setReview] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
   const [setMessage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
     // Check if user is logged in
     if (!current_user) {
       // User is not logged in, handle the error or redirect to the login page
       console.log("User is not logged in");
       return;
     }
-
+  
     // Call addMotorcycle function from the context
-    addMotorcycle(title, review, image, current_user.id)
+    addMotorcycle(title, description, price, image, current_user.id)
       .then((response) => {
         // Handle the response from the context
         if (response.success) {
@@ -47,14 +49,20 @@ function AddBike() {
         Swal.fire("Error", "Something went wrong", "error");
       });
   };
+  
+
+  // Render the form only if a user is logged in
+  // if (!current_user) {
+  //   return <p>Please log in to add a bike.</p>;
+  // }
 
   return (
     <div className="container">
       <div className="row my-5">
         <div className="col">
-          <h3 className="mb-4">New Bikes</h3>
+          <h3>New Bikes</h3>
 
-          <form className="add-bike-form" onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label className="form-label">Title</label>
               <input
@@ -64,10 +72,18 @@ function AddBike() {
               />
             </div>
             <div className="mb-3">
-              <label className="form-label">Review</label>
+              <label className="form-label">Description</label>
               <input
                 type="text"
-                onChange={(e) => setReview(e.target.value)}
+                onChange={(e) => setDescription(e.target.value)}
+                className="form-control"
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Price</label>
+              <input
+                type="text"
+                onChange={(e) => setPrice(e.target.value)}
                 className="form-control"
               />
             </div>
