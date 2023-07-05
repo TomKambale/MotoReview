@@ -52,9 +52,9 @@ function AddBike() {
     <div className="container">
       <div className="row my-5">
         <div className="col">
-          <h3>New Bikes</h3>
+          <h3 className="mb-4">New Bikes</h3>
 
-          <form onSubmit={handleSubmit}>
+          <form className="add-bike-form" onSubmit={handleSubmit}>
             <div className="mb-3">
               <label className="form-label">Title</label>
               <input

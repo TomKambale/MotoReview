@@ -1,0 +1,43 @@
+.home-container {
+    background-color: black;
+    color: rgb(255, 255, 255);
+    width: 1924px;
+    margin-left: -310px;
+  }
+  
+  .container-fluid.bg-black {
+    background-color: black;
+    height: 100vh;
+  }
+ 
+  .container-fluid.bg-black h2 {
+    color: white;
+  }
+  
+  .card {
+    background-color: #333;
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .card-title,
+  .card-text,
+  .btn {
+    color: white;
+  }
+  
+  .placeholder-glow {
+    animation: placeholder-glow 1.5s infinite alternate;
+  }
+  
+  @keyframes placeholder-glow {
+    from {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    to {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+  .home-info{
+    padding-top: 40px;
+  }

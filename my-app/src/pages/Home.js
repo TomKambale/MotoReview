@@ -14,11 +14,41 @@ export default function Home() {
 
   return (
     <div className="home-container">
+          <div className="home-info">
       <div className="container text-center">
+        <div className="row align-items-center">
+          <div className="col-sm-12 col-md-6">
+            <img
+              src="https://ridermagazine.com/wp-content/uploads/2023/04/2023-CFMOTO-450SS-2.jpg"
+              className="img-fluid"
+              alt="Adventure"
+            />
+          </div>
+          <div className="col-sm-12 col-md-6">
+            <strong>Attention all adventurous souls!</strong>
+            <p>
+              Are you a passionate motorcycle traveler who has explored the far
+              corners of our beautiful planet?
+            </p>
+            <p>
+              We want to hear your extraordinary tales and remarkable
+              experiences. Join us in sharing your captivating stories, uniting
+              riders from every corner of the globe as we embark on an
+              exhilarating journey of exploration and inspiration.
+            </p>
+            <p>
+              Come, ignite the wanderlust within you and let your stories be
+              heard! Share your remarkable adventures with us today.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
         <div className="row align-items-center">
           <div className="col-sm-12 col-md-6"></div>
         </div>
-      </div>
+   
       <div className="container mt-5">
         <h2 className="text-center">Reviewed Bikes</h2>
         <div className="row">

@@ -1,8 +1,22 @@
-.bike-container {
-    background-color: #ffffff;
+.add-bike-form {
+    max-width: 500px;
+    margin: 0 auto;
     padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #656565;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+  }
+  
+  .add-bike-form .form-label {
+    font-weight: bold;
+  }
+  
+  .add-bike-form .form-control {
+    margin-bottom: 10px;
+  }
+  
+  .add-bike-form .btn-primary {
+    background-color: #E7C200;
+    color: #fff;
   }
   
