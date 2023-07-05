@@ -1,5 +1,6 @@
 # MotoShop
-## Author : Thomas Kambale
+## Author : Thomas 
+
 
 ### Frontend link: https://glistening-sprite-bb4347.netlify.app/
 ### Backend link : https://motoshop.onrender.com
